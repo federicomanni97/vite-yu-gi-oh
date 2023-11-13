@@ -2,7 +2,7 @@
     <div class="col-2"> 
             <img :src="imageCard" :alt="nameCard"/>
             <div class="text-center p-3 cards-block">
-                <h6>{{ nameCard }}</h6>
+                <h6 class="text-light">{{ nameCard }}</h6>
                 <p>{{ archetypeCard }}</p>
             </div>
      </div>
