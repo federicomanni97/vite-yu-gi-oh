@@ -1,6 +1,10 @@
 <template>
   <div>
-    <body>  
+    <body>
+      <div class="bg-white">
+        <img class="logo" src="images/Yugioh_anime_logo.webp" alt="logo">
+        <span class="fs-1 align-middle"> Yu-Gi-Oh API</span>
+      </div>  
       <main class="container">
         <div class="row g-5 mt-4 bg-light">
           <CardComponent
@@ -47,6 +51,10 @@ export default {
 <style lang="scss" scoped>
 body{
   background-color: orange;
+}
+
+.logo{
+  width: 270px;
 }
 
 </style>
