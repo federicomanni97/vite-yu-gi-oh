@@ -1,19 +1,29 @@
 <template>
   <div>
     <main class="container">
-      <div class="row">
+      <div class="row g-5 mt-4">
+        <CardComponent
+          v-for="(element, index) in store.cardList"
+          :imageCard="element.card_images[0].image_url_small" 
+          :nameCard="element.name" 
+          :archetypeCard="element.archetype" 
+         />
       </div>
     </main>
   </div>
 </template>
 
 <script>
-import { store } from './data/store'
+import CardComponent from './components/CardComponent.vue';
+import { store } from './data/store.js'
 import axios from 'axios'
 export default {
+  name: 'App',
+  components: {
+      CardComponent,
+    },
   data() {
     
-
     return {
       store
     }
@@ -22,8 +32,7 @@ export default {
       getCards(){
         const url = store.apiUrl;
         axios.get(url).then((response) =>{
-          console.log(response.data);
-          store.cardList = response.data;
+          store.cardList = response.data.data;
         })
       }
     },
