@@ -1,15 +1,17 @@
 <template>
   <div>
-    <main class="container">
-      <div class="row g-5 mt-4">
-        <CardComponent
-          v-for="(element, index) in store.cardList"
-          :imageCard="element.card_images[0].image_url_small" 
-          :nameCard="element.name" 
-          :archetypeCard="element.archetype" 
-         />
-      </div>
-    </main>
+    <body>  
+      <main class="container">
+        <div class="row g-5 mt-4 bg-light">
+          <CardComponent
+            v-for="(element, index) in store.cardList"
+            :imageCard="element.card_images[0].image_url_small" 
+            :nameCard="element.name" 
+            :archetypeCard="element.archetype" 
+          />
+        </div>
+      </main>
+  </body>
   </div>
 </template>
 
@@ -43,5 +45,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+body{
+  background-color: orange;
+}
 
 </style>

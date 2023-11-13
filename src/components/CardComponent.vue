@@ -1,8 +1,8 @@
 <template>
-    <div class="col-2">  
+    <div class="col-2"> 
             <img :src="imageCard" :alt="nameCard"/>
-            <div class="text-center">
-                <h5>{{ nameCard }}</h5>
+            <div class="text-center p-3 cards-block">
+                <h6>{{ nameCard }}</h6>
                 <p>{{ archetypeCard }}</p>
             </div>
      </div>
@@ -29,6 +29,11 @@ export default {
 <style lang="scss" scoped>
 img{
     width: 100%;
+}
+
+.cards-block{
+    background-color: orange;
+    height: 150px;
 }
 
 </style>
