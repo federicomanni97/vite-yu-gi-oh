@@ -5,7 +5,9 @@
         <img class="logo" src="images/Yugioh_anime_logo.webp" alt="logo">
         <span class="fs-1 align-middle"> Yu-Gi-Oh API</span>
       </div>  
+      
       <main class="container">
+        <SearchComponent @select-element="selectType"/>
         <div class="row g-4 mt-4 bg-light">
           <p class="text-light w-100 py-4 bg-dark">Found {{ store.cardList.length }} cards</p>
           <CardComponent
@@ -21,6 +23,7 @@
 </template>
 
 <script>
+import SearchComponent from './components/SearchComponent.vue';
 import CardComponent from './components/CardComponent.vue';
 import { store } from './data/store.js'
 import axios from 'axios'
@@ -28,19 +31,25 @@ export default {
   name: 'App',
   components: {
       CardComponent,
+      SearchComponent
     },
   data() {
     
     return {
-      store
+      store,
+      params: null
     }
   },
   methods: {
       getCards(){
         const url = store.apiUrl;
-        axios.get(url).then((response) =>{
+        axios.get(url, {params: this.params}).then((response) =>{
           store.cardList = response.data.data;
-        })
+        }) 
+      },
+      selectType(search){
+        this.params = {archetype: search}
+        this.getCards()
       }
     },
     created(){
