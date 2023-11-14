@@ -12,7 +12,7 @@
           <p class="text-light w-100 py-4 bg-dark">Found {{ store.cardList.length }} cards</p>
           <CardComponent
             v-for="(element, index) in store.cardList"
-            :imageCard="element.card_images[0].image_url_small" 
+            :imageCard="element.card_images[0].image_url" 
             :nameCard="element.name" 
             :archetypeCard="element.archetype" 
           />
