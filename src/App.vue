@@ -47,6 +47,13 @@ export default {
           store.cardList = response.data.data;
         }) 
       },
+      getArchetypes(){
+            const url = store.apiArchetypesUrl;
+            axios.get(url).then((response) =>{            
+            store.archetypesList = response.data;
+            console.log(response.data);
+            })
+        },
       selectType(search){
         this.params = {archetype: search}
         this.getCards()
@@ -54,6 +61,7 @@ export default {
     },
     created(){
       this.getCards()
+      this.getArchetypes()
     }
 }
 </script>
